@@ -1,5 +1,7 @@
 package Package24;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -27,6 +29,16 @@ public class XPathClass {
 		
 		//Xpath with starts with
 		driver.findElement(By.xpath("//*[starts-with(text(), 'Movers')]")).click();
+		
+		//xpath with contains
+		List movers = driver.findElements(By.xpath("//h2[contains(@class, 'a-carousel-heading a-inline-block')]"));
+		System.out.println(movers.size());
+		System.out.println(movers);
+		
+		//chained Xpath
+		//driver.findElement(By.xpath("//div[@id = 'a-page']/a[@id ='skiplink']")).click();
+		
+		driver.quit();
 	}
 
 }
